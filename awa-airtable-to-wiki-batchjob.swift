@@ -248,7 +248,7 @@ actor OutlineService {
         let jsonData = try encoder.encode(requestBody)
         
         let request = HTTPClient.Request.outlineRequest(
-            url: "https://wiki.awa-con.com/api/documents.create",
+            url: "https://app.getoutline.com/api/documents.create",
             apiToken: configuration.outlineAPIToken,
             body: jsonData
         )
@@ -272,7 +272,7 @@ actor OutlineService {
         let jsonData = try encoder.encode(requestBody)
         
         let request = HTTPClient.Request.outlineRequest(
-            url: "https://wiki.awa-con.com/api/documents.update",
+            url: "https://app.getoutline.com/api/documents.update",
             apiToken: configuration.outlineAPIToken,
             body: jsonData
         )
@@ -382,7 +382,7 @@ struct AirTableOutlineSyncLambda: LambdaHandler {
             // Update Outline document
             context.logger.info("Updating Outline document")
             try await outlineService.createOrUpdateDocument(
-                title: "\(tableName) - AirTable Export",
+                title: "AWA Registrations",
                 content: markdownContent
             )
             
